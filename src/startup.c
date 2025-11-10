@@ -8,6 +8,7 @@
 
 void reset_handler(void);
 void default_handler(void);
+void exti0_irq_handler(void);
 void nmi_handler(void) __attribute__((weak, alias("default_handler")));
 void hard_fault_handler(void) __attribute__((weak, alias("default_handler")));
 void bus_fault_handler(void) __attribute__((weak, alias("default_handler")));
@@ -35,6 +36,13 @@ uint32_t isr_vector[ISR_VECTOR_SIZE_WORDS] __attribute__((section(".isr_vector")
     0,
     (uint32_t) &pendsv_handler,
     (uint32_t) &systick_handler,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    (uint32_t) &exti0_irq_handler,
     // continue adding device interrupt handlers
 };
 
