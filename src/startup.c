@@ -43,7 +43,7 @@ void default_handler(void) {
 }
 
 extern uint32_t _etext, _sdata, _edata, _sbss, _ebss;
-void main(void);
+int main(void);
 
 void reset_handler(void) {
     // Copy .data from FLASH to SRAM
